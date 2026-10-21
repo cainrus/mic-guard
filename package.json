@@ -1,0 +1,18 @@
+{
+  "name": "mic-guard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Keeps the macOS default input off Bluetooth so a headset never drops into 16 kHz hands-free mode",
+  "license": "MIT",
+  "author": "Sergei Tarassov <cainrus@gmail.com>",
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "bin": {
+    "mic-guard": "./src/bin.ts"
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types --test 'src/**/*.test.ts'"
+  }
+}
