@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Example launchd agent for mic-guard. launchd does not expand ~ or $HOME:
+     replace every /Users/YOU and the node path with absolute paths of your own
+     (`which node`), then see README.md for install and removal. -->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>local.mic-guard</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/node</string>
+        <string>--experimental-strip-types</string>
+        <string>--disable-warning=ExperimentalWarning</string>
+        <string>/Users/YOU/mic-guard/src/bin.ts</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/YOU/Library/Logs/mic-guard.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/YOU/Library/Logs/mic-guard.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key>
+        <string>/Users/YOU</string>
+    </dict>
+
+    <key>ThrottleInterval</key>
+    <integer>60</integer>
+</dict>
+</plist>
